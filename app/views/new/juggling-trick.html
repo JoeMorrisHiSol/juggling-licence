@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = 'Placeholder' %}
+{% set pageName = 'What is your most impressive juggling trick?' %}
 
 {% block beforeContent %}
 
@@ -19,32 +19,18 @@
 
       <form novalidate method="post">
 
-        {{ govukRadios({
-          idPrefix: "[new][numberOfBalls]",
-          name: "[new][numberOfBalls]",
-          fieldset: {
-            legend: {
-              text: pageName,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          value: data.numberOfBalls,
-          items: [
-            {
-              value: "3 or more",
-              text: "3 or more"
-            },
-            {
-              value: "1 or 2",
-              text: "1 or 2"
-            },
-            {
-              value: "None - I cannot juggle",
-              text: "None - I cannot juggle"
-            }
-          ]
-        }) }}
+       {{ govukCharacterCount({
+        name: "[new][trick]",
+        id: "[new][trick]",
+        maxwords: 100,
+        label: {
+          text: pageName,
+          isPageHeading: true,
+          classes: "govuk-label--l"
+        },
+        maxlength: 200,
+        value: data.new.trick
+       }) }}
 
         {{ govukButton({
           text: "Continue"
