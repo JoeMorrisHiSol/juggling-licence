@@ -2,6 +2,10 @@
 
 {% set pageName="Accessibility statement" %}
 
+{% set accessibilityMarkdown %}
+
+{% endset %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -31,6 +35,8 @@
       <p>AbilityNet has advice on making your device easier to use, if you have a disability.</p>
     
     </p>
+
+  {{accessibilityMarkdown | govukMarkdown({headingsStartWith: 'l'})}} 
 
   </div>
 </div>
