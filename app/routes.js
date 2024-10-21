@@ -7,35 +7,68 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+
 router.post('/new/email-address', (req, res) => {
-    res.redirect('/new/code')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/code') }
 })
 
 router.post('/new/code', (req, res) => {
-    res.redirect('/new/name')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/name') }
 })
 
 router.post('/new/name', (req, res) => {
-    res.redirect('/new/country')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/country')}
 })
 
 router.post('/new/country', (req, res) => {
-    res.redirect('/new/juggling-balls')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/juggling-balls')}
 })
 
 router.post('/new/juggling-balls', (req, res) => {
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
     if (req.body.new.numberOfBalls == 'None - I cannot juggle') {
     res.redirect('/new/not-eligible')
     }
     else {
     res.redirect('/new/juggling-trick')
-    }
+    }}
 })
 
 router.post('/new/juggling-trick', (req, res) => {
-    res.redirect('/new/juggling-objects')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/juggling-objects')}
 })
 
 router.post('/new/juggling-objects', (req, res) => {
-    res.redirect('/new/check')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+    }
+    else {
+    res.redirect('/new/check')}
+})
+
+router.post('/new/check', (req, res) => {
+    res.redirect('/new/confirmation')
 })
